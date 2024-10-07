@@ -1,10 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import locationRoutes from './routers/locationRoutes';
 
 dotenv.config();
-
 const app = express();
+app.use(express.json());
+app.use('/api/location', locationRoutes);
+
+
 const PORT = process.env.PORT || 3000;
 
 // MongoDB Connection
